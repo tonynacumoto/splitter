@@ -1,0 +1,3 @@
+// add private builds here
+.vscode
+node_modules

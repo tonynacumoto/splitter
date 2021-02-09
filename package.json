@@ -1,0 +1,27 @@
+{
+  "name": "splitter-solidity",
+  "version": "1.0.0",
+  "description": "splitter smart contract for ethereum",
+  "main": "truffle-config.js",
+  "directories": {
+    "test": "test"
+  },
+  "dependencies": {
+    "openzeppelin-solidity": "3.4.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "remix": "remixd -s ~/dev/splitter --remix-ide https://remix.ethereum.org/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ynotucan/splitter.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ynotucan/splitter/issues"
+  },
+  "homepage": "https://github.com/ynotucan/splitter#readme"
+}

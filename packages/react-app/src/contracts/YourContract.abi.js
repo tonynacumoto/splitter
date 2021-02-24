@@ -91,6 +91,19 @@ module.exports = [
     "inputs": [
       {
         "indexed": false,
+        "internalType": "bool",
+        "name": "success",
+        "type": "bool"
+      }
+    ],
+    "name": "Reset",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": false,
         "internalType": "address",
         "name": "sender",
         "type": "address"
@@ -119,24 +132,6 @@ module.exports = [
       }
     ],
     "name": "addPayee",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-  },
-  {
-    "inputs": [
-      {
-        "internalType": "address",
-        "name": "account",
-        "type": "address"
-      },
-      {
-        "internalType": "uint256",
-        "name": "alterSharesBy__",
-        "type": "uint256"
-      }
-    ],
-    "name": "editPayee",
     "outputs": [],
     "stateMutability": "nonpayable",
     "type": "function"
@@ -226,6 +221,13 @@ module.exports = [
     "type": "function"
   },
   {
+    "inputs": [],
+    "name": "reset",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
     "inputs": [
       {
         "internalType": "string",
@@ -236,19 +238,6 @@ module.exports = [
     "name": "setPurpose",
     "outputs": [],
     "stateMutability": "nonpayable",
-    "type": "function"
-  },
-  {
-    "inputs": [],
-    "name": "sharePrice",
-    "outputs": [
-      {
-        "internalType": "string",
-        "name": "",
-        "type": "string"
-      }
-    ],
-    "stateMutability": "view",
     "type": "function"
   },
   {

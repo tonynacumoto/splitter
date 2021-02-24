@@ -9,7 +9,7 @@ import "@openzeppelin/contracts/utils/Address.sol"; //https://github.com/OpenZep
 contract YourContract is Ownable {
 
   string public purpose = "🛠 Do what you can, why not?";
-  string public sharePrice = "🛠 Do what you can, why not?";
+  event Reset(bool success);
   event SetPurpose(address sender, string purpose);
   event PayeeAdded(address account, uint256 shares, bool admin);
   event PaymentReleased(address to, uint256 amount);
@@ -107,6 +107,7 @@ contract YourContract is Ownable {
 
         uint256 totalReceived = address(this).balance + _totalReleased;
         uint256 payment = totalReceived * _shares[account] / _totalShares - _released[account];
+        // 27.5 + 82.5 / 82.5 - 0
 
         require(payment != 0, "PaymentSplitter: account is not due payment");
 
@@ -125,26 +126,22 @@ contract YourContract is Ownable {
     function addPayee(address account, uint256 shares_) public onlyOwner {
         require(account != address(0), "PaymentSplitter: account is the zero address");
         require(shares_ > 0, "PaymentSplitter: shares are 0");
-        // require(_shares[account] == 0, "PaymentSplitter: account already has shares");
+        require(_shares[account] == 0, "PaymentSplitter: account already has shares");
 
-        if (_shares[account] != 0){
-            _payees.push(account);
-        } 
+        _payees.push(account);
         _shares[account] = shares_;
         _totalShares = _totalShares + shares_;
         emit PayeeAdded(account, shares_, true);
     }
-    function editPayee(address account, uint256 alterSharesBy__ ) public onlyOwner {
-        require(account != address(0), "PaymentSplitter: account is the zero address");
-        // require(shares_ > 0, "PaymentSplitter: shares are 0");
-        // require(_shares[account] == 0, "PaymentSplitter: account already has shares");
-
-        if (_shares[account] != 0){
-            _payees.push(account);
-        } 
-        _shares[account] = _shares[account] + alterSharesBy__;
-        _totalShares = _totalShares + alterSharesBy__;
-        emit PayeeAdded(account, _shares[account], true);
+    function reset() public onlyOwner {
+        for (uint i=0; i<_payees.length; i++) {
+            address account = _payees[i];
+            _shares[account] = 0;
+            _released[account] = 0;
+        }
+        _totalReleased = 0;
+        _totalShares = 0;
+        emit Reset(true);
     }
     
 

@@ -134,7 +134,7 @@ contract YourContract is Ownable {
         _totalShares = _totalShares + shares_;
         emit PayeeAdded(account, shares_, true);
     }
-    function editPayee(address account, int alterSharesBy__ ) public onlyOwner {
+    function editPayee(address account, uint256 alterSharesBy__ ) public onlyOwner {
         require(account != address(0), "PaymentSplitter: account is the zero address");
         // require(shares_ > 0, "PaymentSplitter: shares are 0");
         // require(_shares[account] == 0, "PaymentSplitter: account already has shares");

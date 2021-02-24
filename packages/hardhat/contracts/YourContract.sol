@@ -122,7 +122,7 @@ contract YourContract is Ownable {
      * @param account The address of the payee to add.
      * @param shares_ The number of shares owned by the payee.
      */
-    function addPayee(address account, int shares_) public onlyOwner {
+    function addPayee(address account, uint256 shares_) public onlyOwner {
         require(account != address(0), "PaymentSplitter: account is the zero address");
         require(shares_ > 0, "PaymentSplitter: shares are 0");
         // require(_shares[account] == 0, "PaymentSplitter: account already has shares");

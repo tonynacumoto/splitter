@@ -178,8 +178,8 @@
       ]
     },
     "/Users/johnstorey/dev/splitter/splitter/packages/hardhat/contracts/YourContract.sol": {
-      "lastModificationDate": 1613204017726,
-      "contentHash": "bac1f4f92676bf6f70757bdb4b56ccf4",
+      "lastModificationDate": 1614126530733,
+      "contentHash": "42a0601644e7a307bb85609b7b7ec8a2",
       "sourceName": "contracts/YourContract.sol",
       "solcConfig": {
         "version": "0.6.7",

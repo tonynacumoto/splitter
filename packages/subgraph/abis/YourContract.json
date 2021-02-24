@@ -37,6 +37,12 @@
         "internalType": "uint256",
         "name": "shares",
         "type": "uint256"
+      },
+      {
+        "indexed": false,
+        "internalType": "bool",
+        "name": "admin",
+        "type": "bool"
       }
     ],
     "name": "PayeeAdded",
@@ -113,6 +119,24 @@
       }
     ],
     "name": "addPayee",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "account",
+        "type": "address"
+      },
+      {
+        "internalType": "uint256",
+        "name": "alterSharesBy__",
+        "type": "uint256"
+      }
+    ],
+    "name": "editPayee",
     "outputs": [],
     "stateMutability": "nonpayable",
     "type": "function"
@@ -212,6 +236,19 @@
     "name": "setPurpose",
     "outputs": [],
     "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "sharePrice",
+    "outputs": [
+      {
+        "internalType": "string",
+        "name": "",
+        "type": "string"
+      }
+    ],
+    "stateMutability": "view",
     "type": "function"
   },
   {

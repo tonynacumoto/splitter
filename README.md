@@ -1,22 +1,22 @@
-# 🏗 scaffold-eth
+$LEGT
 
-> is everything you need to get started building decentralized applications powered by smart contracts
+Legally Empowered Governance Tokens
 
 ---
 
 ## quickstart
 
-```bash
-git clone https://github.com/austintgriffith/scaffold-eth.git
+have nvm, nodejs, npm & ganache installed locally 
 
-cd scaffold-eth
-```
+then:
 
 ```bash
+git clone https://github.com/ynotucan/splitter
 
-yarn install
-
+cd splitter
 ```
+in three consecutive bash terminal windows inside of  `/splitter`
+
 
 ```bash
 
@@ -24,21 +24,19 @@ yarn start
 
 ```
 
-> in a second terminal window:
-
 ```bash
-cd scaffold-eth
 yarn chain
 
 ```
 
-> in a third terminal window:
-
 ```bash
-cd scaffold-eth
 yarn deploy
 
 ```
+## MetaMask
+In order to interact with the UI, add a custom RPC in MetaMask at http://0.0.0.0:8545/ and import one of the Private Keys printed from your console.
+
+## Development
 
 🔏 Edit your smart contract `YourContract.sol` in `packages/hardhat/contracts`
 
@@ -49,12 +47,6 @@ yarn deploy
 📱 Open http://localhost:3000 to see the app
 
 📚 Keep [solidity by example](https://solidity-by-example.org) handy and check out the [Solidity globals and units](https://solidity.readthedocs.io/en/v0.6.6/units-and-global-variables.html)
-
-> With everything up your dev environment starts looking something like this:
-
-![image](https://user-images.githubusercontent.com/2653167/91858466-768bb080-ec26-11ea-9e9b-81519f7f1c90.png)
-
-> React dev server, HardHat blockchain, deploy terminal, code IDE, and frontend browser.
 
 ---
 

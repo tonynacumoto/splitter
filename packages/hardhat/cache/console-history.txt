@@ -1,0 +1,13 @@
+const s1 = signers[0]
+const a1 = await signers[0].getAddress()
+signers
+const signers = await ethers.getSigners()
+ethers
+ethers.Signer.getAddress()
+Signer
+ls
+provider.signer()
+const provider = new ethers.providers.Web3Provider(provider)
+ethers.provider
+ethers.provider()
+ethers.wallets

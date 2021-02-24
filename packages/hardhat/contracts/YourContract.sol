@@ -8,9 +8,10 @@ import "@openzeppelin/contracts/utils/Address.sol"; //https://github.com/OpenZep
 
 contract YourContract is Ownable {
 
-  string public purpose = "🛠 Programming Unstoppable Money";
+  string public purpose = "🛠 Do what you can, why not?";
+  string public sharePrice = "🛠 Do what you can, why not?";
   event SetPurpose(address sender, string purpose);
-  event PayeeAdded(address account, uint256 shares);
+  event PayeeAdded(address account, uint256 shares, bool admin);
   event PaymentReleased(address to, uint256 amount);
   event PaymentReceived(address from, uint256 amount);
 
@@ -117,20 +118,34 @@ contract YourContract is Ownable {
     }
 
     /**
-     * @dev Add a new payee to the contract.
+     * @dev Admin's backdoor to Add a new payee to the contract.
      * @param account The address of the payee to add.
      * @param shares_ The number of shares owned by the payee.
      */
-    function addPayee(address account, uint256 shares_) public onlyOwner {
+    function addPayee(address account, int shares_) public onlyOwner {
         require(account != address(0), "PaymentSplitter: account is the zero address");
         require(shares_ > 0, "PaymentSplitter: shares are 0");
-        require(_shares[account] == 0, "PaymentSplitter: account already has shares");
+        // require(_shares[account] == 0, "PaymentSplitter: account already has shares");
 
-        _payees.push(account);
+        if (_shares[account] != 0){
+            _payees.push(account);
+        } 
         _shares[account] = shares_;
         _totalShares = _totalShares + shares_;
-        emit PayeeAdded(account, shares_);
+        emit PayeeAdded(account, shares_, true);
     }
+    function editPayee(address account, int alterSharesBy__ ) public onlyOwner {
+        require(account != address(0), "PaymentSplitter: account is the zero address");
+        // require(shares_ > 0, "PaymentSplitter: shares are 0");
+        // require(_shares[account] == 0, "PaymentSplitter: account already has shares");
 
+        if (_shares[account] != 0){
+            _payees.push(account);
+        } 
+        _shares[account] = _shares[account] + alterSharesBy__;
+        _totalShares = _totalShares + alterSharesBy__;
+        emit PayeeAdded(account, _shares[account], true);
+    }
+    
 
 }

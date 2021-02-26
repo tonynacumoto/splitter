@@ -1,6 +1,8 @@
-$LEGT
+SPLITTER
 
-Legally Empowered Governance Tokens
+- incoming ETH split between shares
+- withdraw whenever you'd like
+- admin reset capable
 
 ---
 
